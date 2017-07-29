@@ -1,83 +1,20 @@
-
 <!DOCTYPE html>
-
-<script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-
 <html>
+<head>
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Paragraph changed.";
+}
+</script>
+</head>
 
 <body>
 
-    <div id="decoy-svg-container">
-    <svg id="decoy_viz" width="0" height="0"></svg>
-    </div>
+<h2>JavaScript in Head</h2>
 
-    <div id="svg-container">
-    <svg id="viz" width="720" height="405"></svg>
-    </div>
+<p id="demo">A Paragraph.</p>
 
-<script>
-
-    var width = 720;
-    var height = 405;
-
-</script>
-
-<script>
-var data = 
-[
-    10,
-    5,
-    5,
-    8,
-    9,
-    3,
-    2
-]; 
-   
-function updateViz(data)
-{
-
-
-  // 1. Select the SVG element by its ID.
-
-  // 2. Then use the general update pattern:
-  // 1) Join the data to any existing rect elements.
-  // 2) For each added element, append a rect element to the SVG.
-  // 3)  For each deleted element, remove the old rect.
-
-var svg = d3.select("body")
-		   .append("svg")
-		   .attr("width", w)
-		   .attr("height", h);
-
-svg.selectAll("rect")
-                .data(data)
-                .enter()
-                .append("rect”)
-                .attr(“fill”, “steelblue")
-                .attr("width" , 15)
-                .attr("height", function(d){return 10 * d;} )
-                .attr("x", function(d, i){return 20*i;} )
-                .attr("y", function(d, i){return (h/2.0) - (5.0 * d);})
-                .attr("tokenid", function(d, i){return d * i * 64 ;});
-
-  return svg;
-
-  // Each rect element should have the following //properties:
-  // "width" = 15
-  // "height" = 10 * the datum value
-  // "x" = index of the datum * 20
-  // "y" = (height / 2.0) - (5.0 * the datum value)
-  // "tokenid" = (the datum value) * (the index of the datum) * 64
-  // "fill" of "steelblue "
-  // Note the extra space above! Sorry, this is a temporary bug.
-
-  // Don't forget to update the existing rect elements!
-  // That means you need to implement the general update pattern correctly.
-}
-
-updateViz(data)
-</script>
+<button type="button" onclick="myFunction()">Try it</button>
 
 </body>
+</html> 
