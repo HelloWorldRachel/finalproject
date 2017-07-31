@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
 <script src="scripts/d3.min.js"></script>
@@ -76,19 +77,34 @@ body {
         </p>
       </div>
       <div class="list-group-item">
+        <h3 class="list-group-item-heading text-center" style="color:rgb(205, 49,132)">Annotation</h3>
+        <h4>The annotations here are the tooltips for each brand of yugort. Please move over any of the colored dot and you will see the actual data value(calories, protein) for that brand of yugort based on its type.
+          The tooltips are cleared once you move away from the selected year and line graph.</h4>
+        <p>&nbsp;</p>
         <h4 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">&nbsp;</h4>
+      </div>
+          <div class="list-group-item">
+              <h3 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">Parameters</h3>
+              <h4 class="list-group-item-text">The parameter is a variables in a chart and other scene lelments. The parameters here are the page numbers which you can select to shift between the various indicators. </h4>
+        <p class="list-group-item-text"><br>
+        </p>
+      </div>
+      
+    </div>
+            <div class="list-group-item">
+              <h3 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">Triggers</h3>
+              <h4 class="list-group-item-text">Triggers are the connections between parameters. In this scatter plot, if you move mouse to any dot, you will see the information regarding to the data. </h4>
+              <p class="list-group-item-text"><br>
+        </p>
+    </div>
+
 </div>
 </div>
-  </div>
 
 
 </div>
 
 <div id="Page2" class="col-sm-12">
-
-<div class="col-sm-9">
-<svg id="scatterplot"></svg>
-</div>
 <div id="tooltip"></div>
 
 <!-- <button class="btn btn-success" id="clickme">Click</button> -->
@@ -98,9 +114,8 @@ body {
 <div id="Page3">
   <div class="horizontal_scroll" id="Page3Part1">
     <div class="col-sm-9 col-sm-offset-0">
-      <h4> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;The Nutrition Fact of Yogurt </h4>
-      <svg id="Soc_LE_Line"></svg>
-  </div>
+      <h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;The Nutrition Fact of Yogurt </h3>
+</div>
   <div class="col-sm-3"> </div>
    <div id="tooltip2">
    </div>
@@ -223,56 +238,11 @@ d3.csv("yugort.csv", function(error, data) {
     <!-- ================================================ -->
   </div>
   <div class="col-sm-3">
-    <div style="margin-top: 1%">
-<div class="panel-group" id="accordion2">
-  <div class="panel panel-default">
-<div id="collapse9" class="panel-collapse collapse in"> </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading" style="background-color: rgb(205, 49, 132); color: white">
-        <h6 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion2" href="#collapse10">
-          Annotations</a>
-        </h6>
-      </div>
-      <div id="collapse10" class="panel-collapse collapse">
-        <div class="panel-body">The annotations here are the tooltips for each brand of yugort. Please move over any of the colored dot and you will see the actual data value(calories, protein) for that brand of yugort based on its type.
-          The tooltips are cleared once you move away from the selected year and line graph.
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading" style="background-color: rgb(205, 49, 132); color: white">
-        <h6 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion2" href="#collapse11">
-          Parameters</a>
-        </h6>
-      </div>
-      <div id="collapse11" class="panel-collapse collapse">
-        <div class="panel-body">The parameter is a variables in a chart and other scene lelments. The parameter here is the page number which you can select to shift between the various indicators.</div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading" style="background-color: rgb(205, 49, 132); color: white">
-        <h6 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion2" href="#collapse12">
-          Triggers</a>
-        </h6>
-      </div>
-      <div id="collapse12" class="panel-collapse collapse">
-        <div class="panel-body">Triggers are the connections between parameters.  In this scatter plot, if you move mouse to any dot, you will see the information regarding to the data.
-        </div>
-      </div>
-    </div>
-</div>
-      </div>
+    <div style="margin-top: 1%"> </div>
   </div>
   </div>
   <div class="horizontal_scroll" id="Page3Part3">
-    <div class="col-sm-9">
-    <svg id="Soc_SAN_Line"></svg>
-  </div>
-  <div class="col-sm-3"> </div>
+<div class="col-sm-3"> </div>
   </div>
   <div class="horizontal_scroll" id="Page3Part4">
     <div class="col-sm-9">
@@ -302,3 +272,4 @@ d3.csv("yugort.csv", function(error, data) {
 <script src="scripts\main.js"></script>
 
 </body></html>
+
