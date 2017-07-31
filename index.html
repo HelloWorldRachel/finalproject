@@ -1,218 +1,304 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tachyons/4.6.1/tachyons.min.css" integrity="sha256-eu1dpzpUytdOAUmB67Qi3mBb6HFjruP8BoAzk4lKiSc=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/css-spinning-spinners/1.1.1/load5.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.7/css/ion.rangeSlider.min.css" integrity="sha256-9sQ/MrLMsJ1scS1YzoW+MWmxQfqZXiEFoiZwaMUaMJc=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.7/css/ion.rangeSlider.skinHTML5.min.css" integrity="sha256-oM7PRzevaVAykMzbuHA1GfaDUKmnmI2MVKReRf+PCVA=" crossorigin="anonymous">
-    <style>
-      .darken-10:hover,
-      .darken-10:focus {
-        box-shadow: inset 9999px 9999px rgba(0,0,0,0.10)
-      }
-      .darken-10:active {
-        box-shadow: inset 9999px 9999px rgba(0,0,0,0.20)
-      }
-      .irs-line {
-        background: rgba(0,0,0,0.1);
-      }
-      .irs-bar,
-      .irs-line {
-        border: none;
-        height: 4px;
-      }
-      .irs-slider {
-        border: 2px solid #fff;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.5);
-        background: #357edd;
-        width: 15px;
-        height: 15px;
-        top: 25px;
-      }
-      .irs-bar {
-        border-color: #357edd;
-        background: #357edd;
-      }
-      .irs-single,
-      .irs-from,
-      .irs-to {
-        background: #357edd;
-      }
-    </style>
-  </head>
 
-  <body>
-    <div id="top"></div>
-    <div class="flex flex-column fixed absolute--fill overflow-auto tc">
-      <div id="header" class="mt3 center tc" style="min-width: 700px">
-        <div class="f3 ma0">Webpage Text Bubble Chart</div>
-        <form class="mt3 mb2">
-          <div class="f5 dib pr1">Enter URL:</div>
-          <input id="input_url" class="input-reset ba b--black-20 pa2 f6 w5" style="width: 400px" name="url" placeholder='"https://www.flex.io", etc.'>
-          <button type="button" class="btn-submit border-box no-select ba ttu b f6 ph3 pv2 br1 white bg-blue b--blue darken-10">Submit</button>
-          <input id="input_min" type="hidden" name="min_threshold" value="0">
-          <input id="input_max" type="hidden" name="max_threshold" value="100000">
-        </form>
-        <div id="range" style="width: 100%"></div>
-        <div class="f6 i mid-gray">(Specify a minimum and maximum word count above)</div>
+<!DOCTYPE html>
+<!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
+<script src="scripts/d3.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<link rel="stylesheet" href = "styles/main.css">  </style>
+
+<html>
+<meta charset="utf-8">
+
+<head>
+  <meta charset="UTF-8">
+<title>
+  CS 498 DDV Project
+</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+body {
+  font: 11px sans-serif;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.dot {
+  stroke: #000;
+}
+.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
+</style>
+
+<body>
+<!-- <p>Here are the magic numbers from Lost: <span id="data"></span></p> -->
+
+<!-- <svg class="chart"></svg> -->
+
+<div class="pos_fixed">
+<p><a href="#Page1" class="scroller" id="Page1Marker"><span class="badge" style="background-color:darkgreen;" title="Introduction" id="Mark1">1</span></a><br/><a href="#Page2" class="scroller" id="Page2Marker" ><span class="badge" style="background-color:greenyellow;" id="Mark2" title="Overview">2</span></a>
+<!-- <a href="#Page3" class="scroller" id="Page3Marker" style="padding-top:-10px">.</a> -->
+</p>
+</div>
+
+<div id="Page1">
+  <div class="jumbotron" style="background-color: rgb(205, 48, 112) ; color: white">
+    <h2 style="padding-left : 2%"> How well do you know your yogurt</h2>
+  </div>
+
+  <div class="col-sm-offset-1 col-sm-10" >
+<div class="list-group">
+      <div class="list-group-item">
+        <h3 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">Narrative Visualization Structure</h3>
+        <h4 class="list-group-item-text">The data set is an open source data that allows you explor the yogurt. </h4>
+        <h4 class="list-group-item-text">This narrative visualization follow slideshow hybrid structure, which mixes author-lead and reader-lead structures. &nbsp;There are two slides in total, during each slide, you can read the materials or you can just choose to conitune on if you are not interested in the details. &nbsp;The page option are located on top left. </h4>
       </div>
-      <div class="flex-fill mt2 center">
-        <svg width="740" height="740" font-family="sans-serif" font-size="10" text-anchor="middle" id="svgid"></svg>
+      <div class="list-group-item">
+        <h3 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">Scenes</h3>
+        <h4 class="list-group-item-text">I have two slides and the scene is demonstrated by slide two. &nbsp;In this scene, I have the graph locating on the left with a coordinated set, and the the informations are on the right. </h4>
+        <p class="list-group-item-text"><br>
+        </p>
+      </div>
+      <div class="list-group-item">
+        <h4 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">&nbsp;</h4>
+</div>
+</div>
+  </div>
+
+
+</div>
+
+<div id="Page2" class="col-sm-12">
+
+<div class="col-sm-9">
+<svg id="scatterplot"></svg>
+</div>
+<div id="tooltip"></div>
+
+<!-- <button class="btn btn-success" id="clickme">Click</button> -->
+
+</div>
+<div style="clear:both"></div>
+<div id="Page3">
+  <div class="horizontal_scroll" id="Page3Part1">
+    <div class="col-sm-9 col-sm-offset-0">
+      <h4> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;The Nutrition Fact of Yogurt </h4>
+      <svg id="Soc_LE_Line"></svg>
+  </div>
+  <div class="col-sm-3"> </div>
+   <div id="tooltip2">
+   </div>
+  </div>
+  <div class="horizontal_scroll" id="Page3Part2">
+    <div class="col-sm-9">
+    
+    <!--<svg id="Soc_IM_Line"></svg>-->
+    <script>
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+/* 
+ * value accessor - returns the value to encode for a given data object.
+ * scale - maps value to a visual display encoding, such as a pixel position.
+ * map function - maps from data value to display value
+ * axis - sets up axis
+ */ 
+// setup x 
+var xValue = function(d) { return d.Calories;}, // data -> value
+    xScale = d3.scale.linear().range([0, width]), // value -> display
+    xMap = function(d) { return xScale(xValue(d));}, // data -> display
+    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
+// setup y
+var yValue = function(d) { return d["Protein (g)"];}, // data -> value
+    yScale = d3.scale.linear().range([height, 0]), // value -> display
+    yMap = function(d) { return yScale(yValue(d));}, // data -> display
+    yAxis = d3.svg.axis().scale(yScale).orient("left");
+// setup fill color
+var cValue = function(d) { return d.Manufacturer;},
+    color = d3.scale.category10();
+// add the graph canvas to the body of the webpage
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+// add the tooltip area to the webpage
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+// load data
+d3.csv("yugort.csv", function(error, data) {
+  // change string (from CSV) into number format
+  data.forEach(function(d) {
+    d.Calories = +d.Calories;
+    d["Protein (g)"] = +d["Protein (g)"];
+//    console.log(d);
+  });
+  // don't want dots overlapping axis, so add in buffer to data domain
+  xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
+  yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
+  // x-axis
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("Calories");
+  // y-axis
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Protein (g)");
+  // draw dots
+  svg.selectAll(".dot")
+      .data(data)
+    .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", 3.5)
+      .attr("cx", xMap)
+      .attr("cy", yMap)
+      .style("fill", function(d) { return color(cValue(d));}) 
+      .on("mouseover", function(d) {
+          tooltip.transition()
+               .duration(200)
+               .style("opacity", .9);
+          tooltip.html(d["Cereal Name"] + "<br/> (" + xValue(d) 
+	        + ", " + yValue(d) + ")")
+               .style("left", (d3.event.pageX + 5) + "px")
+               .style("top", (d3.event.pageY - 28) + "px");
+      })
+      .on("mouseout", function(d) {
+          tooltip.transition()
+               .duration(500)
+               .style("opacity", 0);
+      });
+  // draw legend
+  var legend = svg.selectAll(".legend")
+      .data(color.domain())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+  // draw legend colored rectangles
+  legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+  // draw legend text
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d;})
+});
+</script>
+    
+    <!-- ================================================ -->
+  </div>
+  <div class="col-sm-3">
+    <div style="margin-top: 1%">
+<div class="panel-group" id="accordion2">
+  <div class="panel panel-default">
+<div id="collapse9" class="panel-collapse collapse in"> </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color: rgb(205, 49, 132); color: white">
+        <h6 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion2" href="#collapse10">
+          Annotations</a>
+        </h6>
+      </div>
+      <div id="collapse10" class="panel-collapse collapse">
+        <div class="panel-body">The annotations here are the tooltips for each brand of yugort. Please move over any of the colored dot and you will see the actual data value(calories, protein) for that brand of yugort based on its type.
+          The tooltips are cleared once you move away from the selected year and line graph.
+        </div>
       </div>
     </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color: rgb(205, 49, 132); color: white">
+        <h6 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion2" href="#collapse11">
+          Parameters</a>
+        </h6>
+      </div>
+      <div id="collapse11" class="panel-collapse collapse">
+        <div class="panel-body">The parameter is a variables in a chart and other scene lelments. The parameter here is the page number which you can select to shift between the various indicators.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading" style="background-color: rgb(205, 49, 132); color: white">
+        <h6 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion2" href="#collapse12">
+          Triggers</a>
+        </h6>
+      </div>
+      <div id="collapse12" class="panel-collapse collapse">
+        <div class="panel-body">Triggers are the connections between parameters.  In this scatter plot, if you move mouse to any dot, you will see the information regarding to the data.
+        </div>
+      </div>
+    </div>
+</div>
+      </div>
+  </div>
+  </div>
+  <div class="horizontal_scroll" id="Page3Part3">
+    <div class="col-sm-9">
+    <svg id="Soc_SAN_Line"></svg>
+  </div>
+  <div class="col-sm-3"> </div>
+  </div>
+  <div class="horizontal_scroll" id="Page3Part4">
+    <div class="col-sm-9">
+    <svg id="ECO_GNI"></svg>
+  </div>
+</div>
 
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.1.7/js/ion.rangeSlider.min.js" integrity="sha256-ff8CiE/+sJrQzmoyIq+Mllhc6Aw+KkmrQDh7HOWoNMQ=" crossorigin="anonymous"></script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+  <div class="fixed_horizontal" style="display:none">
+    <span>
+      <a href="#Page3Part1" class="h_scroller" id="Page3Part1Marker">
+        <span class="badge" style="background-color:red" title="Life Expectancy" id="SubMark1">1</span>
+      </a>
+      <a href="#Page3Part2" class="h_scroller" id="Page3Part2Marker">
+        <span class="badge" style="background-color:black" title="Infant Mortality" id="SubMark2">2</span>
+      </a>
+      <a href="#Page3Part3" class="h_scroller" id="Page3Part3Marker">
+        <span class="badge" style="background-color:black" title="Sanitation" id="SubMark3">3</span>
+      </a>
+      <a href="#Page3Part4" class="h_scroller" id="Page3Part4Marker">
+        <span class="badge" style="background-color:black" title="Gross National Income" id="SubMark4">4</span>
+      </a>
+    </span>
+  </div>
+  <div style="clear:both"></div>
 
-    <script>
-      var last_url = '';
-      var min_max_found = false;
-      function updateMinMax(arr)
-      {
-        if (min_max_found)
-          return
-        var numbers = arr.map(function(a) {
-          return a.value.length > 0 ? parseFloat(a.value) : null
-        });
-        numbers = numbers.filter(function(n) {
-           return n !== null
-        });
-        var slider = $("#range").data("ionRangeSlider");
-        slider.update({
-          min: Math.min.apply(null, numbers),
-          max: Math.max.apply(null, numbers)
-        });
-        min_max_found = true
-      }
-      // classes is a JS object that looks like this:
-      // [{"id":"flare.analytics.cluster.AgglomerativeCluster","value":3938},
-      //  {"id":"flare.analytics.cluster.CommunityStructure","value":3812},
-      //  ...
-      // ]
-      function updateSvg(classes)
-      {
-        $("#svgid").empty();
-        if (classes.length == 0)
-          return;
-        var svg = d3.select("svg"),
-            width = +svg.attr("width"),
-            height = +svg.attr("height");
-        var format = d3.format(",d");
-        var color = d3.scaleOrdinal(d3.schemeCategory20c);
-        var pack = d3.pack()
-            .size([width, height])
-            .padding(1.5);
-        var root = d3.hierarchy({children: classes})
-            .sum(function(d) { return d.value; })
-            .each(function(d) {
-              if (id = d.data.id) {
-                var id, i = id.lastIndexOf(".");
-                d.id = id;
-                d.package = id.slice(0, i);
-                d.class = id.slice(i + 1);
-              }
-            });
-        var node = svg.selectAll(".node")
-          .data(pack(root).leaves())
-          .enter().append("g")
-            .attr("class", "node")
-            .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-        node.append("circle")
-            .attr("id", function(d) { return d.id; })
-            .attr("r", function(d) { return d.r; })
-            .style("fill", function(d) { return color(d.package); });
-        node.append("clipPath")
-            .attr("id", function(d) { return "clip-" + d.id; })
-          .append("use")
-            .attr("xlink:href", function(d) { return "#" + d.id; });
-        node.append("text")
-            .attr("clip-path", function(d) { return "url(#clip-" + d.id + ")"; })
-          .selectAll("tspan")
-          .data(function(d) { return d.class.split(/(?=[A-Z][^A-Z])/g); })
-          .enter().append("tspan")
-            .attr("x", 0)
-            .attr("y", function(d, i, nodes) { return 13 + (i - nodes.length / 2 - 0.5) * 10; })
-            .text(function(d) { return d; });
-        node.append("title")
-            .text(function(d) { return d.id + "\n" + format(d.value); });
-      }
-      $(function () {
-        // initialize range slider
-        $("#range").ionRangeSlider({
-            type: 'double',
-            min: 0,
-            max: 100000,
-            from: 0,
-            to: 100000,
-            step: 1,
-            onFinish: function (data) {
-              $('#input_min').val(data.from);
-              $('#input_max').val(data.to);
-              if (last_url.length > 0)
-                doSubmit();
-            }
-        });
-        var doSubmit = function()
-        {
-          var url = $('#input_url').val();
-          if (url.indexOf('http') == -1)
-          {
-            alert('The URL entered is invalid. Enter a valid URL to continue.')
-            return;
-          }
-           else
-          {
-            // if we're searching on a different URL, reset the slider min/max values
-            if (url != last_url)
-            {
-              $('#input_min').val(0);
-              $('#input_max').val(100000);
-              var slider = $("#range").data("ionRangeSlider");
-              slider.update({
-                min: 0,
-                max: 100000,
-                from: 0,
-                to: 100000
-              });
-              min_max_found = false;
-            }
-          }
-          last_url = url;
-          // disable submit button
-          $('.btn-submit').addClass('o-40').text('Loading...').prop('disabled', 'true');
-          $('#top').addClass('loading');
-          $("#svgid").empty();
-          $.ajax({
-            type: 'post',
-            url: 'https://www.flex.io/api/v1/pipes/flexio-text-keywords-v1/run?stream=0',
-            beforeSend: function(xhr) {
-              xhr.setRequestHeader('Authorization', 'Bearer nmgzsqppgwqbvkfhjdjd');
-            },
-            data: $('form').serialize(),
-            dataType: "json",
-            success: function (content) {
-              updateMinMax(content);
-              updateSvg(content);
-              // enable submit button
-              $('.btn-submit').removeClass('o-40').text('Submit').removeAttr('disabled');
-              $('#top').removeClass('loading');
-            },
-            error: function (xhr, status, error) {
-              alert('post failed');
-            }
-          });
-        }
-        $('form').on('submit', function (evt) {
-          evt.preventDefault();
-          doSubmit();
-        })
-        $('.btn-submit').click(function(evt) {
-          doSubmit();
-        });
-      });
-    </script>
-  </body>
-</html>
+</div>
+<script src="scripts\main.js"></script>
+
+</body></html>
