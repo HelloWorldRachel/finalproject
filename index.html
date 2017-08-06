@@ -1,272 +1,112 @@
-
-
-
-<!DOCTYPE html>
-<!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
-<script src="scripts/d3.min.js"></script>
-<link rel="stylesheet" href = "styles/main.css">  </style>
-
+<!DOCTYPE HTML>
+<!--
+	Big Picture by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<meta charset="utf-8">
+	<head>
+		<title>Big Picture by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body>
 
-<head>
-  <meta charset="UTF-8">
-<title>
-  CS 498 DDV Project
-</title>
+		<!-- Header -->
+			<header id="header">
+			  <h1>cs 498</h1>
+			  <nav>
+					<ul>
+						<li><a href="#intro">Intro</a></li>
+						<li><a href="#one">page 1</a></li>
+						<li><a href="#two">page 2 &nbsp; &nbsp; </a></li>
+						<li><a href="#conclusion">Conclusion</a></li>
+					</ul>
+				</nav>
+			</header>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!-- Intro -->
+			<section id="intro" class="main style1 dark fullscreen">
+				<div class="content">
+					<header>
+					  <h2>CARS</h2>
+					</header>
+					<h4>About the data</h4>
+				  <p>The dataset with 8 characteristics such as mpg, horse power, etc., has been picked up from auto data from https://perso.telecom-paristech.fr/eagan/class/igr204/datasets</p>
+				  <h4>Narrative Visualization Structure</h4>
+				  <p>This narrative visualization follow interactive slideshow hybrid structure, which mixes author-lead and reader-lead structures. There are three slides in total, during each slide, you can read the materials or you can just choose to conitune on if you are not interested in the details. The page option are located on top right. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
+				  <h4>Scenes</h4>
+					<p>I have four slides and the scene is demonstrated by slide two and slide three.  Each one of those slidefollow the some template, contain one chart with some basic analysis and description of parameters and triggers. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
+					<footer>
+						<a href="#one" class="button style2 down">More</a>
+					</footer>
+				</div>
+			</section>
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<!-- One -->
+			<section id="one" class="main style1  dark fullscreen">
+				<div class="content box style2">
+					<header>
+					  <h6>Narrative Visualization Structure </h6>
+					</header>
+					<p>This narrative visualization follow slideshow hybrid structure, which mixes author-lead and reader-lead structures. There are two slides in total, during each slide, you can read the materials or you can just choose to conitune on if you are not interested in the details. The page option are located on top left.</p>
+				</div>
+				<a href="#two" class="button style2 down anchored">Next</a>
+			</section>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-</head>
-
-<style>
-body {
-  font: 11px sans-serif;
-}
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-.dot {
-  stroke: #000;
-}
-.tooltip {
-  position: absolute;
-  width: 200px;
-  height: 28px;
-  pointer-events: none;
-}
-</style>
-
-<body>
-
-
-<!-- <svg class="chart"></svg> -->
-
-<div class="pos_fixed">
-<p><a href="#Page1" class="scroller" id="Page1Marker"><span class="badge" style="background-color:darkgreen;" title="Introduction" id="Mark1">1</span></a><br/><a href="#Page2" class="scroller" id="Page2Marker" ><span class="badge" style="background-color:greenyellow;" id="Mark2" title="Overview">2</span></a>
-<!-- <a href="#Page3" class="scroller" id="Page3Marker" style="padding-top:-10px">.</a> -->
-</p>
-</div>
-
-<div id="Page1">
-  <div class="jumbotron" style="background-color: rgb(205, 48, 112) ; color: white">
-    <h2 style="padding-left : 2%"> How well do you know your yogurt</h2>
-  </div>
-
-  <div class="col-sm-offset-1 col-sm-10" >
-<div class="list-group">
-      <div class="list-group-item">
-        <h3 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">Narrative Visualization Structure</h3>
-        <h4 class="list-group-item-text">The data set is part of an open source data that allows you explor the nutrition of yogurt. </h4>
-        <h4 class="list-group-item-text">This narrative visualization follow slideshow hybrid structure, which mixes author-lead and reader-lead structures. &nbsp;There are two slides in total, during each slide, you can read the materials or you can just choose to conitune on if you are not interested in the details. &nbsp;The page option are located on top left. </h4>
-      </div>
-      <div class="list-group-item">
-        <h3 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">Scenes</h3>
-        <h4 class="list-group-item-text">I have two slides and the scene is demonstrated by slide two. &nbsp;In this scene, I have the graph locating on the left with a coordinated set, and the the informations are on the right. </h4>
-        <p class="list-group-item-text"><br>
-        </p>
-      </div>
-      <div class="list-group-item">
-        <h3 class="list-group-item-heading text-center" style="color:rgb(205, 49,132)">Annotation</h3>
-        <h4>The annotations here are the tooltips for each brand of yugort. Please move over any of the colored dot and you will see the actual data value(calories, protein) for that brand of yugort based on its type.
-          The tooltips are cleared once you move away from the selected year and line graph.</h4>
-        <p>&nbsp;</p>
-        <h4 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">&nbsp;</h4>
-      </div>
-          <div class="list-group-item">
-              <h3 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">Parameters</h3>
-              <h4 class="list-group-item-text">The parameter is a variables in a chart and other scene lelments. The parameters here are the page numbers which you can select to shift between the various indicators. </h4>
-        <p class="list-group-item-text"><br>
-        </p>
-      </div>
-      
-    </div>
-            <div class="list-group-item">
-              <h3 class="list-group-item-heading text-center" style="color:rgb(205, 49, 132)">Triggers</h3>
-              <h4 class="list-group-item-text">Triggers are the connections between parameters. In this scatter plot, if you move mouse to any dot, you will see the information regarding to the data. </h4>
-              <p class="list-group-item-text"><br>
-        </p>
-    </div>
-
-</div>
-</div>
+		<!-- Two -->
+			<section id="two" class="main style1 dark fullscreen">
+				<div class="content box style2">
+					<header>
+						<h2>Who I Am</h2>
+					</header>
+					<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
+					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
+					id varius justo euismod in. Curabitur egestas consectetur magna.</p>
+				</div>
+				<a href="#conclusion" class="button style2 down anchored">Next</a>
+			</section>
+		<!-- conclusion -->
+			<section id="conclusion" class="main style1 dark fullscreen">
+				<div class="content box style2">
+					<header>
+						<h2>Who I Am</h2>
+					</header>
+					<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
+					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
+					id varius justo euismod in. Curabitur egestas consectetur magna.</p>
+				</div>
+				
+			</section>
+			
 
 
-</div>
+		
+		<!-- Footer -->
+			<footer id="footer">
 
-<div id="Page2" class="col-sm-12">
-<div id="tooltip"></div>
 
-<!-- <button class="btn btn-success" id="clickme">Click</button> -->
 
-</div>
-<div style="clear:both"></div>
-<div id="Page3">
-  <div class="horizontal_scroll" id="Page3Part1">
-    <div class="col-sm-9 col-sm-offset-0">
-      <h3> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; The Nutrition Fact of Yogurt </h3>
-    </div>
-  <div class="col-sm-3"> </div>
-   <div id="tooltip2">
-   </div>
-  </div>
-  <div class="horizontal_scroll" id="Page3Part2">
-    <div class="col-sm-9">
-    
-    <!--<svg id="Soc_IM_Line"></svg>-->
-    <script>
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-/* 
- * value accessor - returns the value to encode for a given data object.
- * scale - maps value to a visual display encoding, such as a pixel position.
- * map function - maps from data value to display value
- * axis - sets up axis
- */ 
-// setup x 
-var xValue = function(d) { return d.Calories;}, // data -> value
-    xScale = d3.scale.linear().range([0, width]), // value -> display
-    xMap = function(d) { return xScale(xValue(d));}, // data -> display
-    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
-// setup y
-var yValue = function(d) { return d["Protein (g)"];}, // data -> value
-    yScale = d3.scale.linear().range([height, 0]), // value -> display
-    yMap = function(d) { return yScale(yValue(d));}, // data -> display
-    yAxis = d3.svg.axis().scale(yScale).orient("left");
-// setup fill color
-var cValue = function(d) { return d.Manufacturer;},
-    color = d3.scale.category10();
-// add the graph canvas to the body of the webpage
-var svg = d3.select("body").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-// add the tooltip area to the webpage
-var tooltip = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-// load data
-d3.csv("yugort.csv", function(error, data) {
-  // change string (from CSV) into number format
-  data.forEach(function(d) {
-    d.Calories = +d.Calories;
-    d["Protein (g)"] = +d["Protein (g)"];
-//    console.log(d);
-  });
-  // don't want dots overlapping axis, so add in buffer to data domain
-  xScale.domain([d3.min(data, xValue)-1, d3.max(data, xValue)+1]);
-  yScale.domain([d3.min(data, yValue)-1, d3.max(data, yValue)+1]);
-  // x-axis
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-    .append("text")
-      .attr("class", "label")
-      .attr("x", width)
-      .attr("y", -6)
-      .style("text-anchor", "end")
-      .text("Calories");
-  // y-axis
-  svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-    .append("text")
-      .attr("class", "label")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Protein (g)");
-  // draw dots
-  svg.selectAll(".dot")
-      .data(data)
-    .enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", 3.5)
-      .attr("cx", xMap)
-      .attr("cy", yMap)
-      .style("fill", function(d) { return color(cValue(d));}) 
-      .on("mouseover", function(d) {
-          tooltip.transition()
-               .duration(200)
-               .style("opacity", .9);
-          tooltip.html(d["Cereal Name"] + "<br/> (" + xValue(d) 
-	        + ", " + yValue(d) + ")")
-               .style("left", (d3.event.pageX + 5) + "px")
-               .style("top", (d3.event.pageY - 28) + "px");
-      })
-      .on("mouseout", function(d) {
-          tooltip.transition()
-               .duration(500)
-               .style("opacity", 0);
-      });
-  // draw legend
-  var legend = svg.selectAll(".legend")
-      .data(color.domain())
-    .enter().append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-  // draw legend colored rectangles
-  legend.append("rect")
-      .attr("x", width - 18)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", color);
-  // draw legend text
-  legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text(function(d) { return d;})
-});
-</script>
-    
-    <!-- ================================================ -->
-  </div>
-  <div class="col-sm-3">
-    <div style="margin-top: 1%"> </div>
-  </div>
-  </div>
-  <div class="horizontal_scroll" id="Page3Part3">
-<div class="col-sm-3"> </div>
-  </div>
-  <div class="horizontal_scroll" id="Page3Part4">
-    <div class="col-sm-9"> </div>
-</div>
+				<!-- Menu -->
+					<ul class="menu">
+						<li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+					</ul>
 
-  <div class="fixed_horizontal" style="display:none">
-    <span>
-      <a href="#Page3Part1" class="h_scroller" id="Page3Part1Marker">
-        <span class="badge" style="background-color:red" title="Life Expectancy" id="SubMark1">1</span>
-      </a>
-      <a href="#Page3Part2" class="h_scroller" id="Page3Part2Marker">
-        <span class="badge" style="background-color:black" title="Infant Mortality" id="SubMark2">2</span>
-      </a>
-      <a href="#Page3Part3" class="h_scroller" id="Page3Part3Marker">
-        <span class="badge" style="background-color:black" title="Sanitation" id="SubMark3">3</span>
-      </a>
-      <a href="#Page3Part4" class="h_scroller" id="Page3Part4Marker">
-        <span class="badge" style="background-color:black" title="Gross National Income" id="SubMark4">4</span>
-      </a>
-    </span>
-  </div>
-  <div style="clear:both"></div>
+			</footer>
 
-</div>
-<script src="scripts\main.js"></script>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
 
-</body></html>
+	</body>
+</html>
