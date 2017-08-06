@@ -5,6 +5,7 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<head>
 		<title>Big Picture by HTML5 UP</title>
 		<meta charset="utf-8" />
@@ -51,8 +52,100 @@
 			<section id="one" class="main style1  dark fullscreen">
 				<div class="content box style2">
 					<header>
-					  <h6>Narrative Visualization Structure </h6>
-					</header>
+
+<meta charset="utf-8">
+<style>
+div.tooltip {
+ position: absolute;
+ text-align: center;
+ width: 60px;
+ height: 28px;
+ padding: 2px;
+ background: white;
+ font: 12px sans-serif;
+ border: 0px;
+ border-radius: 8px;
+ pointer-events: none; 
+}
+</style>
+<body>
+
+
+<script>
+//set the dimensions and margins of the graph
+var margin = {top: 30, right: 50, bottom: 50, left: 90},
+ width = 750 - margin.left - margin.right,
+ height = 500 - margin.top - margin.bottom;
+//set the ranges
+var x=d3.scaleLinear().range([0,width])
+var y=d3.scaleLinear().range([height,0])
+//add tooltip area
+var div = d3.select("body").append("div")
+ .attr("class", "tooltip")
+ .style("opacity", 0);
+//append svg,group
+var svg=d3.select("body").append('svg')
+ .attr("width",width+margin.left+margin.right)
+ .attr("height",height+margin.top+margin.bottom)
+ .append('g')
+ .attr("transform","translate("+margin.left+","+margin.top+")");
+//get the data
+d3.csv("auto.csv",function(error,data){
+ if (error) throw error;
+ data.forEach(function(d){
+ d.mpg=+d.mpg;
+ d.weight=+d.weight;
+ });
+//scale the range of the data
+x.domain(d3.extent(data,function(d){return d.mpg;}));
+y.domain(d3.extent(data,function(d){return d.weight;}));
+ //add the scatterplot
+ svg.selectAll("dot")
+ .data(data)
+ .enter().append("circle")
+ .attr("r",5)
+ .attr("cx",function(d){return x(d.mpg);})
+ .attr("cy",function(d){return y(d.weight);})
+ .attr("fill","steelblue")
+ .style("opacity", .7)
+ .on("mouseover", function(d) { 
+ div.transition() 
+ .duration(200) 
+ .style("opacity", .9); 
+ div.html(d.mpg + "<br/>" + d.weight) 
+ .style("left", (d3.event.pageX) + "px") 
+ .style("top", (d3.event.pageY - 28) + "px"); 
+ }) 
+ .on("mouseout", function(d) { 
+ div.transition() 
+ .duration(500) 
+ .style("opacity", 0); 
+ });
+//add the x axis
+svg.append("g")
+ .attr("transform","translate( 0,"+height+")")
+ .call(d3.axisBottom(x));
+svg.append("text") 
+ .attr("transform",
+ "translate(" + (width/2) + " ," + 
+ (height + margin.top+5) + ")")
+ .style("text-anchor", "middle")
+ .text("mpg");
+// Add the Y Axis
+svg.append("g")
+ .call(d3.axisLeft(y));
+svg.append("text")
+ .attr("transform", "rotate(-90)")
+ .attr("y", 0 - margin.left-5)
+ .attr("x",0 - (height / 2))
+ .attr("dy", "1em")
+ .style("text-anchor", "middle")
+ .text("weight"); 
+});
+</script>
+</body>
+
+				</header>
 					<p>This narrative visualization follow slideshow hybrid structure, which mixes author-lead and reader-lead structures. There are two slides in total, during each slide, you can read the materials or you can just choose to conitune on if you are not interested in the details. The page option are located on top left.</p>
 				</div>
 				<a href="#two" class="button style2 down anchored">Next</a>
