@@ -97,22 +97,22 @@ d3.csv("auto.csv",function(error,data){
  d.weight=+d.weight;
  });
 //scale the range of the data
-x.domain(d3.extent(data,function(d){return d.mpg;}));
-y.domain(d3.extent(data,function(d){return d.weight;}));
+x.domain(d3.extent(data,function(d){return d.weight;}));
+y.domain(d3.extent(data,function(d){return d.mpg;}));
  //add the scatterplot
  svg.selectAll("dot")
  .data(data)
  .enter().append("circle")
  .attr("r",5)
- .attr("cx",function(d){return x(d.mpg);})
- .attr("cy",function(d){return y(d.weight);})
+ .attr("cx",function(d){return x(d.weight);})
+ .attr("cy",function(d){return y(d.mpg);})
  .attr("fill","steelblue")
  .style("opacity", .7)
  .on("mouseover", function(d) { 
  div.transition() 
  .duration(200) 
  .style("opacity", .9); 
- div.html(d.mpg + "<br/>" + d.weight) 
+ div.html(d.weight + "<br/>" + d.mpg) 
  .style("left", (d3.event.pageX) + "px") 
  .style("top", (d3.event.pageY - 28) + "px"); 
  }) 
@@ -130,7 +130,7 @@ svg.append("text")
  "translate(" + (width/2) + " ," + 
  (height + margin.top+5) + ")")
  .style("text-anchor", "middle")
- .text("mpg");
+ .text("weight");
 // Add the Y Axis
 svg.append("g")
  .call(d3.axisLeft(y));
@@ -140,12 +140,12 @@ svg.append("text")
  .attr("x",0 - (height / 2))
  .attr("dy", "1em")
  .style("text-anchor", "middle")
- .text("weight"); 
+ .text("mpg"); 
 });
 </script>
 </body>
 
-				</header>
+			
 					<p>This narrative visualization follow slideshow hybrid structure, which mixes author-lead and reader-lead structures. There are two slides in total, during each slide, you can read the materials or you can just choose to conitune on if you are not interested in the details. The page option are located on top left.</p>
 				</div>
 				<a href="#two" class="button style2 down anchored">Next</a>
