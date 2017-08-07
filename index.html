@@ -98,7 +98,7 @@
     var x=d3.scaleLinear().range([0,width])
     var y=d3.scaleLinear().range([height,0])
     //append svg,group
-    var svg=d3.select("#chart3").append('svg')
+    var svg=d3.select("#chart3")
           .attr("width",width+margin.left+margin.right)
           .attr("height",height+margin.top+margin.bottom)
           .append('g')
