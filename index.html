@@ -1,3 +1,4 @@
+			
 <!DOCTYPE HTML>
 <!--
 	Big Picture by HTML5 UP
@@ -28,7 +29,7 @@
 						<li><a href="#intro">Intro</a></li>
 						<li><a href="#one">page 1</a></li>
 						<li><a href="#two">page 2 &nbsp; &nbsp; </a></li>
-						<li><a href="#conclusion">Conclusion</a></li>
+						<li>&nbsp;</li>
 					</ul>
 				</nav>
 			</header>
@@ -50,8 +51,25 @@
 					</footer>
 				</div>
 			</section>
+			
+	<!--section one -->
+	<section id="one" class="main style1 dark fullscreen">
+	  <div class="content box style2">
+	    <!--header>    </header-->
+       <!--insert d3 graph 1  here-->
+<svg id="chart1"></svg>
+<p id="chart1_text">Analysis: from this scatter plot we can see that keep the other variables constant, as the horse power increases, the mph decreases between interval [60, 120], after that, the horse power &nbsp; &nbsp;does not effect much to mpg. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
+<p>Annotation: the tooltips on each data dot which gives information regarding to brands weight horse, and mpg. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
+<p>Parameters: the page numbers and when you mouseover to any data spot, the value changes. </p>
+<p>Triggers: the difference between different slides and different data spots. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+	  </div>
+				
+	</section>
 
-		<!-- One -->
+		<!-- One 
 			<section id="one" class="main style1  dark fullscreen">
 				<div class="content box style2">
 					<header>
@@ -60,51 +78,61 @@
 					<p>This narrative visualization follow slideshow hybrid structure, which mixes author-lead and reader-lead structures. There are two slides in total, during each slide, you can read the materials or you can just choose to conitune on if you are not interested in the details. The page option are located on top left.</p>
 				</div>
 				<a href="#two" class="button style2 down anchored">Next</a>
-			</section>
+			</section-->
 
 		<!-- Two -->
 	<section id="two" class="main style1 dark fullscreen">
 	    <div class="content box style2">
-
+<!--insert d3 graph 2  here-->
 <svg id="chart2"></svg>
 <p id="chart2_text">This chart 2.</p>
 					
 					
 	   </div>
-	   <a href="#conclusion" class="button style2 down anchored">Next</a>
+	   <!--a href="#conclusion" class="button style2 down anchored">Next</a-->
 	</section>
 			
 			
 		<!-- conclusion -->
-	<section id="conclusion" class="main style1 dark fullscreen">
-	  <div class="content box style2">
-	    <!--header>    </header-->
 
-<svg id="chart1"></svg>
-<p id="chart1_text">This chart 1.</p> 
-<p>The annotations here are the tooltips on each data dot. The tooltip gives information &nbsp;regarding to brands, weight, horse, and mpg. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
-	  </div>
-				
-	</section>
-					
 <!-- d3 graph 1 -->			
-	 <script>
-	var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
-		 
-	//d3.select("#chart1") // creat unique id for chart
-    //set the ranges
-    var x=d3.scaleLinear().range([0,width])
-    var y=d3.scaleLinear().range([height,0])
-    //append svg,group
-    var svg=d3.select("#chart1")
+<style>
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 80px;
+  padding: 2px;
+  background: white;
+  font: 12px sans-serif;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;       
+}
+</style>
+
+
+
+<script>
+//set the dimensions and margins of the graph
+var margin = {top: 50, right: 50, bottom: 70, left: 90},
+    width = 750 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
+//set the ranges
+var x=d3.scaleLinear().range([0,width])
+var y=d3.scaleLinear().range([height,0])
+//add tooltip area
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
+//append svg,group
+var svg=d3.select("chart1")
           .attr("width",width+margin.left+margin.right)
           .attr("height",height+margin.top+margin.bottom)
           .append('g')
           .attr("transform","translate("+margin.left+","+margin.top+")");
-   //get the data
-    d3.csv("auto.csv",function(error,data){
+//get the data
+d3.csv("auto.csv",function(error,data){
         if (error) throw error;
         data.forEach(function(d){
           d.mpg=+d.mpg;
@@ -119,42 +147,89 @@ y.domain(d3.extent(data,function(d){return d.mpg;}));
      .enter().append("circle")
      .attr("r",5)
      .attr("cx",function(d){return x(d.hp);})
-     .attr("cy",function(d){return y(d.mpg);});
-    
-      
-//add the X axis
+     .attr("cy",function(d){return y(d.mpg);})
+     .attr("fill","steelblue")
+     .style("opacity", .7)
+     .on("mouseover", function(d) {      
+            div.transition()        
+                .duration(200)      
+                .style("opacity", .9);      
+               div.html("("+d.hp + "," + d.mpg+")"+"<br/>"+d.name)  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px");    
+            })                  
+        .on("mouseout", function(d) {       
+            div.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+        });
+//add the x axis
 svg.append("g")
   .attr("transform","translate( 0,"+height+")")
-  .call(d3.axisBottom(x))
-    .append("text")
-  .text("horse power");
-// add the Y Axis
+  .call(d3.axisBottom(x));
+svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top+15) + ")")
+      .style("text-anchor", "middle")
+      .text("horse power");
+//Add title
+ svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Mpg against Horse Power");
+// Add the Y Axis
 svg.append("g")
-  .call(d3.axisLeft(y))
-    .append("text")
-  .text("mpg");
+  .call(d3.axisLeft(y));
+svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left+15)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("mpg");      
 });
 </script>
-					
+
 <!--end of chart 1-->					
+
+			
 
 
 
 <!-- d3 graph 2 -->
 
+<style>
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 60px;
+  height: 80px;
+  padding: 2px;
+  background: white;
+  font: 12px sans-serif;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;       
+}
+</style>
 <script>
 //set the dimensions and margins of the graph
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 560 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var margin = {top: 50, right: 50, bottom: 70, left: 90},
+    width = 750 - margin.left - margin.right,
+    height = 450 - margin.top - margin.bottom;
 //set the ranges
 var x=d3.scaleLinear().range([0,width])
 var y=d3.scaleLinear().range([height,0])
-
-// d3.select("#chart2") // creat unique id for chart
-
+//add tooltip area
+var div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 //append svg,group
-var svg=d3.select("#chart2").append('svg')
+var svg=d3.select("chart2")
           .attr("width",width+margin.left+margin.right)
           .attr("height",height+margin.top+margin.bottom)
           .append('g')
@@ -167,27 +242,61 @@ d3.csv("auto.csv",function(error,data){
           d.weight=+d.weight;
         });
 //scale the range of the data
-x.domain(d3.extent(data,function(d){return d.mpg;}));
-y.domain(d3.extent(data,function(d){return d.weight;}));
-	
-
-
+x.domain(d3.extent(data,function(d){return d.weight;}));
+y.domain(d3.extent(data,function(d){return d.mpg;}));
  //add the scatterplot
  svg.selectAll("dot")
      .data(data)
      .enter().append("circle")
-     .attr("r"10)
+     .attr("r",5)
      .attr("cx",function(d){return x(d.weight);})
-     .attr("cy",function(d){return y(d.mpg);});
+     .attr("cy",function(d){return y(d.mpg);})
+     .attr("fill","steelblue")
+     .style("opacity", .7)
+     .on("mouseover", function(d) {      
+            div.transition()        
+                .duration(200)      
+                .style("opacity", .9);      
+               div.html("("+d.weight + "," + d.mpg+")"+"<br/>"+d.name)  
+                .style("left", (d3.event.pageX) + "px")     
+                .style("top", (d3.event.pageY - 28) + "px");    
+            })                  
+        .on("mouseout", function(d) {       
+            div.transition()        
+                .duration(500)      
+                .style("opacity", 0);   
+        });
 //add the x axis
 svg.append("g")
-  .attr("transform","translate(0,"+height+")")
+  .attr("transform","translate( 0,"+height+")")
   .call(d3.axisBottom(x));
+svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top+15) + ")")
+      .style("text-anchor", "middle")
+      .text("weight");
+//Add title
+ svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "16px") 
+        .style("text-decoration", "underline")  
+        .text("Mpg against Weight");
 // Add the Y Axis
-  svg.append("g")
-      .call(d3.axisLeft(y));
+svg.append("g")
+  .call(d3.axisLeft(y));
+svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left+15)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("mpg");      
 });
 </script>
+
 	
 <!--end of chart 2-->		
 		
