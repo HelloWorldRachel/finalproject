@@ -81,24 +81,25 @@
 	    <header>
 						
 		</header>
-<svg id="chart3"></svg>
+<p id="chart1_text">This chart 1.</p> 
+<svg id="chart1"></svg>
 <p>The annotations here are the tooltips on each data dot. The tooltip gives information &nbsp;regarding to brands, weight, horse, and mpg. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
 	  </div>
 				
 	</section>
 					
-<!-- d3 graph 3 -->			
+<!-- d3 graph 1 -->			
 	 <script>
 	var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 1800 - margin.left - margin.right,
-    height = 250 - margin.top - margin.bottom;
+    width = 960 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
 		 
 	//d3.select("#chart3") // creat unique id for chart
     //set the ranges
     var x=d3.scaleLinear().range([0,width])
     var y=d3.scaleLinear().range([height,0])
     //append svg,group
-    var svg=d3.select("#chart3")
+    var svg=d3.select("#chart1")
           .attr("width",width+margin.left+margin.right)
           .attr("height",height+margin.top+margin.bottom)
           .append('g')
@@ -136,7 +137,7 @@ svg.append("g")
 });
 </script>
 					
-<!--end of chart 3-->					
+<!--end of chart 1-->					
 
 
 
