@@ -78,11 +78,10 @@
 		<!-- conclusion -->
 	<section id="conclusion" class="main style1 dark fullscreen">
 	  <div class="content box style2">
-	    <header>
-						
-		</header>
-<p id="chart1_text">This chart 1.</p> 
+	    <!--header>    </header-->
+
 <svg id="chart1"></svg>
+<p id="chart1_text">This chart 1.</p> 
 <p>The annotations here are the tooltips on each data dot. The tooltip gives information &nbsp;regarding to brands, weight, horse, and mpg. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </p>
 	  </div>
 				
@@ -94,7 +93,7 @@
     width = 960 - margin.left - margin.right,
     height = 300 - margin.top - margin.bottom;
 		 
-	//d3.select("#chart3") // creat unique id for chart
+	//d3.select("#chart1") // creat unique id for chart
     //set the ranges
     var x=d3.scaleLinear().range([0,width])
     var y=d3.scaleLinear().range([height,0])
@@ -146,7 +145,7 @@ svg.append("g")
 <script>
 //set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
+    width = 560 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 //set the ranges
 var x=d3.scaleLinear().range([0,width])
